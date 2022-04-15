@@ -1,18 +1,38 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Secondhand Sale - @yield('title')</title>
-    @yield('head')
-</head>
-<body>
-<h1> Header </h1>
-@section('sidebar')
-    This is the master sidebar.
-@show
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@yield('title')</title>
+    <link href="{{asset("assets")}}/home_assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset("assets")}}/home_assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{asset("assets")}}/home_assets/css/prettyPhoto.css" rel="stylesheet">
+    <link href="{{asset("assets")}}/home_assets/css/price-range.css" rel="stylesheet">
+    <link href="{{asset("assets")}}/home_assets/css/animate.css" rel="stylesheet">
+    <link href="{{asset("assets")}}/home_assets/css/main.css" rel="stylesheet">
+    <link href="{{asset("assets")}}/home_assets/css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="{{asset("assets")}}/home_assets/js/html5shiv.js"></script>
+    <script src="{{asset("assets")}}/home_assets/js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="{{asset("assets")}}/home_assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{asset("assets")}}/home_assets/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{asset("assets")}}/home_assets/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{asset("assets")}}/home_assets/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{asset("assets")}}/home_assets/images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+@yield('head')
 <div class="container">
+    @include("MyHome.header")
+    @include("MyHome.slider")
     @yield('content')
+    @show
+    @include("MyHome.footer")
+
+
+
 </div>
-<h1> Footer </h1>
-@yield('foot')
 </body>
 </html>
