@@ -24,7 +24,8 @@
     <link rel="apple-touch-icon-precomposed" href="{{asset("assets")}}/home_assets/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 @yield('head')
-<div class="container">
+<body>
+<div class="shell">
     @include("MyHome.header")
     @include("MyHome.slider")
     @yield('content')
