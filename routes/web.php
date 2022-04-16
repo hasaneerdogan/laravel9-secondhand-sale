@@ -2,27 +2,11 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 
 
-// 1-write in route
-Route::get('/hello', function () {
-    return 'Hello World';
-});
-// 2- Call view in route
-Route::get('/welcome', function () {
-    return view('welcome');
-});
-//3- Call Controller
+//3- Call Controller***********Main Page*********************************
 Route::get('/',[HomeController::class,'index'])->name('home');
-
-//4- Route -> Controller -> View
-Route::get('/test',[HomeController::class,'test'])->name('test');
-
-//5- Route with parameters
-Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name('param');
-
-//6- Route with parameters
-Route::post('/save',[HomeController::class,'save'])->name('save');
 
 Route::middleware([
     'auth:sanctum',
@@ -33,3 +17,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+//*****************************************ADMIN PANEL ROOTES***********************************//
+Route::get('/admin',[AdminHomeController::class,'index'])->name('admin');
