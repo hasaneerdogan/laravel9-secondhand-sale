@@ -1,33 +1,33 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Edit Category : ' .$data->title )
 
 @section('content')
 
 
         <div class="main-panel" >
             <div class="content-wrapper">
-                <h1>Add Category</h1>
+                <h1>Edit Category:{{$data->title}}</h1>
                 <div class="col-md-6 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Create</h4>
+                            <h4 class="card-title">Edit </h4>
                             <p class="card-description"> </p>
-                            <form class="forms-sample" action="/admin/category/store" method="post">
+                            <form class="forms-sample" action="/admin/category/update/{{$data->id}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Title</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="title">
+                                    <input type="text" class="form-control" id="title" name="title" value="{{$data->title}}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Keywords</label>
-                                    <input type="text" class="form-control" id="keywords" name="keywords" placeholder="keywords">
+                                    <input type="text" class="form-control" id="keywords" name="keywords" value="{{$data->keywords}}">
                                 </div>
 
-                                <div class="form-group">
+                                <div class= "form-group">
                                     <label for="exampleInputUsername1">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+                                    <input type="text" class="form-control" id="description" name="description" value="{{$data->description}}">
                                 </div>
 
                                 <div class="form-group" >
@@ -44,19 +44,16 @@
                                 </div>
 
 
-                                <div class="form-group"  >
+                                <div class="form-group" >
                                     <label>Select</label>
                                         <select class="form-control" name="status">
-                                            <option >True</option>
-                                            <option >False</option>
+                                            <option selected >{{$data->status}} </option>
+                                            <option>True</option>
+                                            <option>False</option>
                                         </select>
                                 </div>
 
-
-
-
-
-                                <button type="submit" class="btn btn-primary me-2">Save</button>
+                                <button type="submit" class="btn btn-primary me-2">Update Data</button>
                                 <button class="btn btn-dark">Cancel</button>
                             </form>
                         </div>
