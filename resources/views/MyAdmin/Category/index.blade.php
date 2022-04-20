@@ -14,15 +14,15 @@
                                 <table class="table">
                                     <thead>
                                     </th>
-                                    <th>Id</th>
-                                    <th>Title</th>
-                                    <th>Keyword</th>
-                                    <th>Description</th>
-                                    <th>Image</th>
-                                    <th>Status</th>
-                                    <th style="width: 40px">Edit</th>
-                                    <th style="width: 40px">Delete</th>
-                                    <th style="width: 40px">Show</th>
+                                    <th class="text-white">Id</th>
+                                    <th class="text-white">Title</th>
+                                    <th class="text-white">Keyword</th>
+                                    <th class="text-white">Description</th>
+                                    <th class="text-white">Image</th>
+                                    <th class="text-white">Status</th>
+                                    <th style="width: 40px" class="text-white">Edit</th>
+                                    <th style="width: 40px" class="text-white">Delete</th>
+                                    <th style="width: 40px" class="text-white">Show</th>
                                     </tr>
                                     </thead>
                                     <tbody>

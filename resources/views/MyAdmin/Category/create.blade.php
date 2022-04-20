@@ -17,23 +17,24 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Title</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="title">
+                                    <input type="text" class="form-control text-white" id="title" name="title" >
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Keywords</label>
-                                    <input type="text" class="form-control" id="keywords" name="keywords" placeholder="keywords">
+                                    <input type="text" class="form-control text-white" id="keywords" name="keywords">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exampleInputUsername1">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+                                    <input type="text" class="form-control text-white" id="description" name="description">
                                 </div>
 
                                 <div class="form-group" >
                                     <label for="exampeInputFile">Image</label>
                                     <div class="input-group">
                                         <div class="custom-file">
+                                            <input type="file" name="image" class="file-upload-default">
                                             <input type="file" class="custom-file-input" name="image">
                                             <label class="custom-file-label" for="exampleInputFile"></label>
                                         </div>
@@ -46,7 +47,7 @@
 
                                 <div class="form-group"  >
                                     <label>Select</label>
-                                        <select class="form-control" name="status">
+                                        <select class="form-control text-white" name="status">
                                             <option >True</option>
                                             <option >False</option>
                                         </select>
