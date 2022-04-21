@@ -3,7 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
-use \App\Http\Controllers\AdminPanel\CategoryController as CategoryController;
+use App\Http\Controllers\AdminPanel\CategoryController as CategoryController;
 
 
 //3- Call Controller***********Main Page*********************************
@@ -19,14 +19,18 @@ Route::middleware([
     })->name('dashboard');
 });
 
-
+Route::prefix('admin')->name('admin.')->group(function (){
 //*****************************************ADMIN PANEL ROOTES***********************************//
-Route::get('/admin',[AdminHomeController::class,'index'])->name('admin');
+Route::get('/',[AdminHomeController::class,'index'])->name('index');
 //*****************************************ADMIN CATEGORY ROOTES***********************************//
-Route::get('/admin/category',[CategoryController::class,'index'])->name('admin_category');
-Route::get('/admin/category/create',[CategoryController::class,'create'])->name('admin_category_create');
-Route::post('/admin/category/store',[CategoryController::class,'store'])->name('admin_category_store');
-Route::get('/admin/category/edit/{id}',[CategoryController::class,'edit'])->name('admin_category_edit');
-Route::post('/admin/category/update/{id}',[CategoryController::class,'update'])->name('admin_category_update');
-Route::get('/admin/category/delete/{id}',[CategoryController::class,'destroy'])->name('admin_category_delete');
-Route::get('/admin/category/show/{id}',[CategoryController::class,'show'])->name('admin_category_show');
+
+    Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function (){
+Route::get('/','index')->name('index');
+Route::get('/create','create')->name('create');
+Route::post('/store','store')->name('store');
+Route::get('/edit/{id}','edit')->name('edit');
+Route::post('/update/{id}','update')->name('update');
+Route::get('/delete/{id}','destroy')->name('delete');
+Route::get('/show/{id}','show')->name('show');
+    });
+});

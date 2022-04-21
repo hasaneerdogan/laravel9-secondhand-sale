@@ -2,18 +2,20 @@
 
 @section('title', 'Show Category : ' .$data->title )
 
+
 @section('content')
 
  <div class="main-panel" >
             <div class="content-wrapper">
+                    <div class="card-body">
+                        <a href="{{route('admin.category.edit',['id'=>$data->id])}}}" class="add btn btn-primary col-sm-2"> Edit</a>
+                        <a href="{{route('admin.category.delete',['id'=>$data->id])}}" class="add btn btn-danger col-sm-2" onclick="return confirm('Are You Sure')" style="width: 90px"> Delete</a>
+                    </div>
                 <div class="col-lg-12 grid-margin stretch-card">
-
                     <div class="card">
-
                         <div class="card-body">
                             <h4 class="card-title">Details of Category {{$data->title}}</h4>
                             <div class="table-responsive">
-
                                 <table class="table table-striped">
                                     <tr>
                                         <th style="width: 200px"><label class="badge badge-light text-black">Id</label></th>
@@ -47,19 +49,10 @@
                                         <th style="width: 30px"><label class="badge badge-light text-black">Update Date</label></th>
                                         <td class="text-white">{{$data->updated_at}}</td>
                                     </tr>
-                                    </td>
-
                                 </table>
-
-                                    <a href="/admin/category/edit/{{$data->id}}" class="add btn btn-primary " style="width: 70px " > Edit</a>
-
-                                    <a href="/admin/category/delete/{{$data->id}}" class="add btn btn-danger " onclick="return confirm('Are You Sure')" style="width: 90px"> Delete</a>
-
                             </div>
                         </div>
-
                     </div>
-
                 </div>
 
 @endsection

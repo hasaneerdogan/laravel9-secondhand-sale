@@ -3,7 +3,12 @@
 @section('title', 'Category List')
 
 @section('content')
- <div class="main-panel">
+
+    <div class="main-panel">
+        <div class="content-wrapper">
+                <div class="card-body">
+                    <a class="nav-link btn btn-success create-new-button col-sm-3" href="{{route('admin.category.create')}}"> Create New Category</a>
+        </div>
             <div class="content-wrapper">
             <div class="row ">
                 <div class="col-12 grid-margin">
@@ -34,9 +39,9 @@
                                             <th>{{$rs->description}}</th>
                                             <th>{{$rs->image}}</th>
                                             <th>{{$rs->status}}</th>
-                                            <th><a href="/admin/category/edit/{{$rs->id}}" class="add btn btn-primary "> Edit</a></th>
-                                            <th><a href="/admin/category/delete/{{$rs->id}}" onclick="return confirm('Are You Sure')" class="add btn btn-danger "> Delete</a></th>
-                                            <th><a href="/admin/category/show/{{$rs->id}}" class="add btn btn-success "> Show</a></th>
+                                            <th><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="add btn btn-primary "> Edit</a></th>
+                                            <th><a href="{{route('admin.category.delete',['id'=>$rs->id])}}" onclick="return confirm('Are You Sure')" class="add btn btn-danger "> Delete</a></th>
+                                            <th><a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="add btn btn-success "> Show</a></th>
                                         </tr>
                                     @endforeach
                                     </tbody>

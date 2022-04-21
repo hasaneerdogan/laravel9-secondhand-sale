@@ -1,7 +1,7 @@
 <!-- partial:../../partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="/admin/"><img src="{{asset('assets')}}/adminasset/images/logo.svg" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo" href=""><img src="{{asset('assets')}}/adminasset/images/logo.svg" alt="logo" /></a>
         <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="{{asset('assets')}}/adminasset/images/logo-mini.svg" alt="logo" /></a>
     </div>
     <ul class="nav">
@@ -60,7 +60,7 @@
             <span class="nav-link">Category</span>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin">
+            <a class="nav-link" href="{{route('admin.index')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
@@ -68,7 +68,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/category">
+            <a class="nav-link" href="{{route('admin.category.index')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
