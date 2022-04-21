@@ -35,7 +35,7 @@
                                             <th>{{$rs->image}}</th>
                                             <th>{{$rs->status}}</th>
                                             <th><a href="/admin/category/edit/{{$rs->id}}" class="add btn btn-primary "> Edit</a></th>
-                                            <th><a href="/admin/category/delete/{{$rs->id}}" class="add btn btn-danger "> Delete</a></th>
+                                            <th><a href="/admin/category/delete/{{$rs->id}}" onclick="return confirm('Are You Sure')" class="add btn btn-danger "> Delete</a></th>
                                             <th><a href="/admin/category/show/{{$rs->id}}" class="add btn btn-success "> Show</a></th>
                                         </tr>
                                     @endforeach
