@@ -22,6 +22,10 @@
                                         <td class="text-white">{{$data->id }}</td>
                                     </tr>
                                     <tr>
+                                        <th style="width: 30px"><label class="badge badge-light text-black">Parent Id</label></th>
+                                        <td class="text-white">{{$data->parent_id}}</td>
+                                    </tr>
+                                    <tr>
                                         <th style="width: 30px"><label class="badge badge-light text-black">Title</label></th>
                                         <td class="text-white">{{$data->title }}</td>
                                     </tr>

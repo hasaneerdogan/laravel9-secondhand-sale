@@ -20,9 +20,8 @@
                                     <thead>
                                     </th>
                                     <th class="text-white">Id</th>
+                                    <th class="text-white">Parent</th>
                                     <th class="text-white">Title</th>
-                                    <th class="text-white">Keyword</th>
-                                    <th class="text-white">Description</th>
                                     <th class="text-white">Image</th>
                                     <th class="text-white">Status</th>
                                     <th style="width: 40px" class="text-white">Edit</th>
@@ -34,10 +33,13 @@
                                     @foreach($data as $rs)
                                         <tr>
                                             <th>{{$rs->id}}</th>
+                                            <th>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</th>
                                             <th>{{$rs->title}}</th>
-                                            <th>{{$rs->keywords}}</th>
-                                            <th>{{$rs->description}}</th>
-                                            <th>{{$rs->image}}</th>
+                                            <th>
+                                            @if ($rs->image)
+                                                <img src="{{Storage::url($rs->image) }}" style="width: 35px" class="">
+                                            @endif
+                                            </th>
                                             <th>{{$rs->status}}</th>
                                             <th><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="add btn btn-primary "> Edit</a></th>
                                             <th><a href="{{route('admin.category.delete',['id'=>$rs->id])}}" onclick="return confirm('Are You Sure')" class="add btn btn-danger "> Delete</a></th>
