@@ -57,7 +57,6 @@
 
 
         <li class="nav-item nav-category">
-            <span class="nav-link">Category</span>
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link" href="{{route('admin.index')}}">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\AdminProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
@@ -20,9 +21,9 @@ Route::middleware([
 });
 
 Route::prefix('admin')->name('admin.')->group(function (){
-//*****************************************ADMIN PANEL ROOTES***********************************//
+//*****************************************ADMIN PANEL ROOT ***********************************//
 Route::get('/',[AdminHomeController::class,'index'])->name('index');
-//*****************************************ADMIN CATEGORY ROOTES***********************************//
+//*****************************************ADMIN CATEGORY ROOT ***********************************//
 
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function (){
 Route::get('/','index')->name('index');
@@ -32,5 +33,18 @@ Route::get('/edit/{id}','edit')->name('edit');
 Route::post('/update/{id}','update')->name('update');
 Route::get('/delete/{id}','destroy')->name('delete');
 Route::get('/show/{id}','show')->name('show');
+    });
+
+
+    //*****************************************ADMIN PRODUCT ROOT ***********************************//
+
+    Route::prefix('product')->name('product.')->controller(AdminProductController::class)->group(function (){
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/delete/{id}','destroy')->name('delete');
+        Route::get('/show/{id}','show')->name('show');
     });
 });
