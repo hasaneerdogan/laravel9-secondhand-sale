@@ -23,7 +23,9 @@
                                     </tr>
                                     <tr>
                                         <th style="width: 30px"><label class="badge badge-light text-black">Category Id</label></th>
-                                        <td class="text-white">{{$data->category_id}}</td>
+                                        <td class="text-white">
+                                        {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($data->category,$data->category->title)}}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th style="width: 30px"><label class="badge badge-light text-black">Title</label></th>
@@ -42,8 +44,8 @@
                                         <td class="text-white">{{$data->price }}</td>
                                     </tr>
                                     <tr>
-                                        <th style="width: 30px"><label class="badge badge-light text-black">Tax</label></th>
-                                        <td class="text-white">{{$data->tax }}</td>
+                                        <th style="width: 30px"><label class="badge badge-light text-black">Stock</label></th>
+                                        <td class="text-white">{{$data->stock }}</td>
                                     </tr>
                                     <tr>
                                         <th style="width: 30px"><label class="badge badge-light text-black">Detail</label></th>

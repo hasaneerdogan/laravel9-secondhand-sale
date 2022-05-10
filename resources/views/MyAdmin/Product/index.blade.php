@@ -23,6 +23,7 @@
                                     <th class="text-white">Category</th>
                                     <th class="text-white">Title</th>
                                     <th class="text-white">Price</th>
+                                    <th class="text-white">Stock</th>
                                     <th class="text-white">Image</th>
                                     <th class="text-white">Status</th>
                                     <th style="width: 40px" class="text-white">Edit</th>
@@ -34,9 +35,10 @@
                                     @foreach($data as $rs)
                                         <tr>
                                             <th>{{$rs->id}}</th>
-                                            <th>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</th>
+                                            <th>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category,$rs->category->title)}}</th>
                                             <th>{{$rs->title}}</th>
                                             <th>{{$rs->price}}</th>
+                                            <th>{{$rs->stock}}</th>
                                             <th>
                                             @if ($rs->image)
                                                 <img src="{{Storage::url($rs->image) }}" style="width: 35px" class="">

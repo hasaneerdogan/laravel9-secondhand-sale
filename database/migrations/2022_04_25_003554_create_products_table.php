@@ -23,8 +23,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('detail')->nullable();
             $table->float('price')->nullable();
-            $table->integer('quantity')->nullable();
-            $table->integer('tax')->nullable();
+            $table->integer('stock');
             $table->string('status',length:10)->default('False');
             $table->timestamps();
         });

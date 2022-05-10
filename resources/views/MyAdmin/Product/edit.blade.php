@@ -47,8 +47,8 @@
                                     <input type="number" class="form-control text-white" id="price" name="price" value="{{$data->price}}" style="color: white" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">Tax %</label>
-                                    <input type="number" class="form-control text-white" id="tax" name="tax" value="{{$data->tax}}" style="color: white" required>
+                                    <label for="exampleInputUsername1">Stock</label>
+                                    <input type="number" class="form-control text-white" id="stock" name="stock" value="{{$data->stock}}" style="color: white" required>
                                 </div>
 
                                 <div class="form-group">

@@ -51,8 +51,7 @@ class AdminProductController extends Controller
         $data->description=$request->description;
         $data->detail=$request->detail;
         $data->price=$request->price;
-        $data->quantity=1;
-        $data->tax=$request->tax;
+        $data->stock=$request->stock;
         $data->status=$request->status;
         if ($request->file('image')){
             $data->image=$request->file('image')->store('images');
@@ -103,9 +102,7 @@ class AdminProductController extends Controller
         $data->description=$request->description;
         $data->detail=$request->detail;
         $data->price=$request->price;
-        $data->quantity=$request->quantity;
-        $data->tax=$request->tax;
-
+        $data->stock=$request->stock;
         $data->status=$request->status;
         if ($request->file('image')){
             $data->image=$request->file('image')->store('images');

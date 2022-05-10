@@ -43,9 +43,10 @@
                                     <label for="exampleInputUsername1">Price TL</label>
                                     <input type="number" class="form-control text-white" id="price" name="price" required>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">Tax %</label>
-                                    <input type="number" class="form-control text-white" id="tax" name="tax" required>
+                                    <label for="exampleInputUsername1">Stock</label>
+                                    <input type="number" class="form-control text-white" name="stock" required>
                                 </div>
 
                                 <div class="form-group">
