@@ -35,9 +35,9 @@
                                         <th style="width: 30px"><label class="badge badge-light text-black">Keywords</label></th>
                                         <td class="text-white">{{$data->keywords }}</td>
                                     </tr>
-                                    <tr>
+                                    <tr >
                                         <th style="width: 30px"><label class="badge badge-light text-black">Description</label></th>
-                                        <td class="text-white">{{$data->description }}</td>
+                                        <td class="text-white text-area">{{$data->description }}</td>
                                     </tr>
                                     <tr>
                                         <th style="width: 30px"><label class="badge badge-light text-black">Price</label></th>
@@ -53,7 +53,11 @@
                                     </tr>
                                     <tr>
                                         <th style="width: 30px"><label class="badge badge-light text-black">Image</label></th>
-                                        <td class="text-white">{{$data->image }}</td>
+                                        <td class="text-white"><th>
+                                            @if ($data->image)
+                                                <img src="{{Storage::url($data->image) }}" style="width: 35px" class="">
+                                            @endif
+                                        </th></td>
                                     </tr>
                                     <tr>
                                         <th style="width: 30px"><label class="badge badge-light text-black">Status</label></th>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanel\AdminProductController;
+use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
@@ -46,5 +47,13 @@ Route::get('/show/{id}','show')->name('show');
         Route::post('/update/{id}','update')->name('update');
         Route::get('/delete/{id}','destroy')->name('delete');
         Route::get('/show/{id}','show')->name('show');
+    });
+
+    //*****************************************ADMIN PRODUCT IMAGE GALERY ROOT ***********************************//
+
+    Route::prefix('image')->name('image.')->controller(ImageController::class)->group(function (){
+        Route::get('/{pid}','index')->name('index');
+        Route::post('/store/{pid}','store')->name('store');
+        Route::get('/delete/{pid}/{id}','destroy')->name('delete');
     });
 });
