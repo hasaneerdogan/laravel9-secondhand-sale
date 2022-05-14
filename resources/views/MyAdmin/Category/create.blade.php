@@ -4,11 +4,11 @@
 
 @section('content')
 
-
+    <div class="container">
         <div class="main-panel" >
             <div class="content-wrapper">
                 <h1>Add Category</h1>
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Create</h4>

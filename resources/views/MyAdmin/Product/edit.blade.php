@@ -1,21 +1,23 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Edit Product : ' .$data->title )
-
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
 
-
+    <div class="container">
         <div class="main-panel" >
             <div class="content-wrapper">
                 <h1>Edit Product:{{$data->title}}</h1>
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Edit </h4>
                             <p class="card-description"> </p>
                             <form class="forms-sample" action="{{route('admin.product.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data"  >
                                 @csrf
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label>Parent Category</label>
 
                                     <select class="form-control select2" name="category_id" style="">
@@ -28,33 +30,44 @@
 
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Title</label>
                                     <input type="text" class="form-control" id="title" name="title" value="{{$data->title}}" style="color: white" required>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Keywords</label>
                                     <input type="text" class="form-control" id="keywords" name="keywords" value="{{$data->keywords}}" style="color: white" required>
                                 </div>
 
-                                <div class= "form-group">
+                                <div class= "form-group text-white">
                                     <label for="exampleInputUsername1">Description</label>
                                     <input type="text" class="form-control" id="description" name="description" value="{{$data->description}}" style="color: white" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Price TL</label>
                                     <input type="number" class="form-control text-white" id="price" name="price" value="{{$data->price}}" style="color: white" required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Stock</label>
                                     <input type="number" class="form-control text-white" id="stock" name="stock" value="{{$data->stock}}" style="color: white" required>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="exampleInputUsername1">Detail</label>
-                                    <textarea class="form-control" name="detail" style="color: white" value="{{$data->detail}}" required>
+                                <div class="form-group text-black">
+                                    <label for="exampleInputUsername1" class="text-white">Detail</label>
+                                    <textarea class="form-control" name="detail" id="detail" style="color: white" value="" >
+                                        {!!  $data->detail !!}
                                     </textarea>
+                                    <script>
+                                        ClassicEditor
+                                            .create( document.querySelector( '#detail' ) )
+                                            .then( editor => {
+                                                console.log( editor );
+                                            } )
+                                            .catch( error => {
+                                                console.error( error );
+                                            } );
+                                    </script>
                                 </div>
 
                                 <div class="input-group-append">

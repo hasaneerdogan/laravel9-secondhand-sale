@@ -4,7 +4,8 @@
 
 @section('content')
 
-    <div class="main-panel">
+    <div class="container">
+        <div class="main-panel">
         <div class="content-wrapper">
                 <div class="card-body">
                     <a class="nav-link btn btn-success create-new-button col-sm-3" href="{{route('admin.category.create')}}"> Create New Category</a>

@@ -4,13 +4,13 @@
 
 
 @section('content')
-
- <div class="main-panel" >
+    <div class="container">
+        <div class="main-panel" >
             <div class="content-wrapper">
-                    <div class="card-body">
-                        <a href="{{route('admin.category.edit',['id'=>$data->id])}}}" class="add btn btn-primary col-sm-2"> Edit</a>
-                        <a href="{{route('admin.category.delete',['id'=>$data->id])}}" class="add btn btn-danger col-sm-2" onclick="return confirm('Are You Sure')" style="width: 90px"> Delete</a>
-                    </div>
+                <div class="card-body">
+                    <a href="{{route('admin.category.edit',['id'=>$data->id])}}}" class="add btn btn-primary col-sm-2"> Edit</a>
+                    <a href="{{route('admin.category.delete',['id'=>$data->id])}}" class="add btn btn-danger col-sm-2" onclick="return confirm('Are You Sure')" style="width: 90px"> Delete</a>
+                </div>
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">

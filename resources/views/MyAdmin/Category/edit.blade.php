@@ -4,7 +4,7 @@
 
 @section('content')
 
-
+    <div class="container">
         <div class="main-panel" >
             <div class="content-wrapper">
                 <h1>Edit Category:{{$data->title}}</h1>

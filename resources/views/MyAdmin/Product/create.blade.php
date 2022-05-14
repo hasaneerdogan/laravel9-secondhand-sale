@@ -1,21 +1,23 @@
 @extends('layouts.adminbase')
 
 @section('title', 'Add Category')
-
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
 
-
+    <div class="container">
         <div class="main-panel" >
             <div class="content-wrapper">
                 <h1>Add New Product</h1>
-                <div class="col-md-6 grid-margin stretch-card">
+                <div class="col-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Product</h4>
                             <p class="card-description"> </p>
                             <form class="forms-sample" action="{{route('admin.product.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label>Parent Category</label>
                                     <select class="form-control select2" name="category_id" style="">
                                         @foreach($data as $rs)
@@ -24,36 +26,48 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Title</label>
                                     <input type="text" class="form-control text-white" id="title" name="title" required >
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Keywords</label>
                                     <input type="text" class="form-control text-white" id="keywords" name="keywords" required>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Description</label>
                                     <input type="text" class="form-control text-white" id="description" name="description" required>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Price TL</label>
                                     <input type="number" class="form-control text-white" id="price" name="price" required>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group text-white">
                                     <label for="exampleInputUsername1">Stock</label>
                                     <input type="number" class="form-control text-white" name="stock" required>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="exampleInputUsername1">Detail</label>
-                                    <textarea class="form-control" name="detail" style="color: white" required>
+                                <div class="form-group text-black">
+                                    <label for="exampleInputText" class="text-white">Detail</label>
+                                    <textarea class="form-control" id="detail" name="detail" required>
+
                                     </textarea>
+                                    <script>
+                                        ClassicEditor
+                                            .create( document.querySelector( '#detail' ) )
+                                            .then( editor => {
+                                                console.log( editor );
+                                            } )
+                                            .catch( error => {
+                                                console.error( error );
+                                            } );
+                                    </script>
                                 </div>
+
                                 <div class="form-group">
                                     <label>File upload</label>
                                     <input type="file" name="image" class="file-upload-default" required>
