@@ -27,7 +27,7 @@
 <body>
 <div class="shell">
     @include("MyHome.header")
-    @include("MyHome.slider")
+
     @yield('content')
     @show
     @include("MyHome.footer")

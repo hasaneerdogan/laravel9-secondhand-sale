@@ -21,20 +21,23 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::get('/product/{id}',[HomeController::class,'product'])->name('product');
+Route::get('home/product/{id}',[HomeController::class,'product'])->name('product');
+
 Route::prefix('admin')->name('admin.')->group(function (){
 //*****************************************ADMIN PANEL ROOT ***********************************//
-Route::get('/',[AdminHomeController::class,'index'])->name('index');
+    Route::get('/',[AdminHomeController::class,'index'])->name('index');
 //*****************************************ADMIN CATEGORY ROOT ***********************************//
-    Route::get('/product/{id]',[HomeController::class,'product'])->name('product');
+
 
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function (){
-Route::get('/','index')->name('index');
-Route::get('/create','create')->name('create');
-Route::post('/store','store')->name('store');
-Route::get('/edit/{id}','edit')->name('edit');
-Route::post('/update/{id}','update')->name('update');
-Route::get('/delete/{id}','destroy')->name('delete');
-Route::get('/show/{id}','show')->name('show');
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/delete/{id}','destroy')->name('delete');
+        Route::get('/show/{id}','show')->name('show');
     });
 
 

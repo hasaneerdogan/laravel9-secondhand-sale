@@ -2,7 +2,7 @@
 
 @section('title', 'Second Hand Sale')
 
-
+@include("MyHome.slider")
 
 @section('content')
 
@@ -167,8 +167,8 @@
                                         <div class="overlay-content">
                                             <h2>{{$rs->price}} TL</h2>
                                             <p>{{$rs->title}}</p>
-                                            <p> {{$rs->detail}} </p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <p> {!! $rs->detail !!} </p>
+                                            <a href="{{route('product',['id'=>$rs->id])}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View</a>
                                         </div>
                                     </div>
                                 </div>
