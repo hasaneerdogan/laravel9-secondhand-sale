@@ -37,21 +37,6 @@ its inside of the index(content) page--->
                                 </a>
                             </h4>
                         </div>
-                        <div id="mens" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul>
-                                    <li><a href="#">Fendi</a></li>
-                                    <li><a href="#">Guess</a></li>
-                                    <li><a href="#">Valentino</a></li>
-                                    <li><a href="#">Dior</a></li>
-                                    <li><a href="#">Versace</a></li>
-                                    <li><a href="#">Armani</a></li>
-                                    <li><a href="#">Prada</a></li>
-                                    <li><a href="#">Dolce and Gabbana</a></li>
-                                    <li><a href="#">Chanel</a></li>
-                                    <li><a href="#">Gucci</a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
 
@@ -136,9 +121,6 @@ its inside of the index(content) page--->
                     </div>
                 </div><!--/price-range-->
 
-                <div class="shipping text-center"><!--shipping-->
-                    <img src="{{asset("assets")}}/home_assets/images/home/shipping.jpg" alt="" />
-                </div><!--/shipping-->
 
             </div>
         </div>

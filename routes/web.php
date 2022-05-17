@@ -25,6 +25,7 @@ Route::prefix('admin')->name('admin.')->group(function (){
 //*****************************************ADMIN PANEL ROOT ***********************************//
 Route::get('/',[AdminHomeController::class,'index'])->name('index');
 //*****************************************ADMIN CATEGORY ROOT ***********************************//
+    Route::get('/product/{id]',[HomeController::class,'product'])->name('product');
 
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function (){
 Route::get('/','index')->name('index');
