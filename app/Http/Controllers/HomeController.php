@@ -20,7 +20,7 @@ class HomeController extends Controller
         $sliderdata=Product::limit(3)->get();
         $categorylist=Category::limit(5)->get();
         $productlist1=Product::limit(4)->get();
-        $productlist2=Product::all();
+        $productlist2=Product::limit(6)->get();
         return view('Myhome.index',[
             'sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'categorylist'=>$categorylist,'productlist2'=>$productlist2
         ]);
@@ -38,13 +38,11 @@ class HomeController extends Controller
 
     public function categoryproducts($id)
     {
-        echo "Category Products".$id;
-        exit();
-        $data=Product::find($id);
-        $images = DB::table('images')->where('product_id',$id)->get();
-        return view('Myhome.product',[
-            'data'=>$data,
-            'images'=>$images
+        $category=Category::find($id);
+        $products = DB::table('products')->where('category_id',$id)->get();
+        return view('Myhome.categoryproducts',[
+            'category'=>$category,
+            'products'=>$products
         ]);
 
     }

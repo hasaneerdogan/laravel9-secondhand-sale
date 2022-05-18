@@ -11,18 +11,21 @@
 
                     <div class="carousel-inner">
                         @foreach($sliderdata as $rs)
-                        <div class="item {{ $rs->id  == 1 ? 'active':' '}}">
-                            <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free E-Commerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                            <div class="item {{ $rs->id  == 11 ? 'active':' '}}">
+                                <div class="col-sm-6">
+                                    <h1><span></span></h1>
+                                    <h2>{{$rs->title}}</h2>
+                                    <p>{{$rs->description}} </p>
+                                    <button type="button" class="btn btn-default get">
+                                        <a href="{{route('product',['id'=>$rs->id])}}" style="color: #0b0b0b">
+                                            Get it now
+                                        </a>
+                                    </button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <img src="{{Storage::url($rs->image) }}" class="girl img-responsive" alt="" style="width: 400px;height: 400px" />
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <img src="{{Storage::url($rs->image) }}" class="girl img-responsive" alt="" />
-                            </div>
-
-                        </div>
                         @endforeach
 
 

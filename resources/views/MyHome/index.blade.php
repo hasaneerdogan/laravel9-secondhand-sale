@@ -2,9 +2,8 @@
 
 @section('title', 'Second Hand Sale')
 
-@include("MyHome.slider")
-
 @section('content')
+    @include("MyHome.slider")
 
     <!--sidebar starts---->
     <div class="container">
@@ -37,22 +36,7 @@
                                 </div>
                             </div>
                         @endforeach
-                        @foreach($mainCategories as $rs)
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="#">{{$rs->title}}</a></h4>
-                                </div>
-                            </div>
-                        @endforeach
                     </div><!--/category-products-->
-
-                    <div class="price-range"><!--price-range-->
-                        <h2>Price Range</h2>
-                        <div class="well text-center">
-                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-                            <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
-                        </div>
-                    </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
                         <img src="{{asset("assets")}}/home_assets/images/home/shipping.jpg" alt="" />
@@ -64,7 +48,7 @@
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
 
-                    <h2 class="title text-center">Features Items</h2>
+                    <h2 class="title text-center">Items</h2>
                     @foreach($productlist2 as $rs)
                         <div class="col-sm-4 content-wrapper">
                             <div class="product-image-wrapper">
@@ -115,9 +99,17 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img src="{{Storage::url($rs->image) }}" alt="" />
-                                        <h2>$56</h2>
-                                        <p>Easy Polo Black Edition</p>
+                                        <h2>{{$rs->price}} TL</h2>
+                                        <p>{{$rs->description}}</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>{{$rs->price}} TL</h2>
+                                            <p>{{$rs->title}}</p>
+                                            <p> {!! $rs->detail !!} </p>
+                                            <a href="{{route('product',['id'=>$rs->id])}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

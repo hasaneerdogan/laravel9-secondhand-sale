@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Add Product')
 @section('head')
     <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 @endsection
@@ -19,7 +19,7 @@
                                 @csrf
                                 <div class="form-group text-white">
                                     <label>Parent Category</label>
-                                    <select class="form-control select2" name="category_id" style="">
+                                    <select class="form-control select2 text-white" name="category_id" style="">
                                         @foreach($data as $rs)
                                             <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                                         @endforeach

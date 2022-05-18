@@ -27,12 +27,9 @@
 <body>
 <div class="shell">
     @include("MyHome.header")
-
     @yield('content')
     @show
     @include("MyHome.footer")
-
-
 
 </div>
 </body>

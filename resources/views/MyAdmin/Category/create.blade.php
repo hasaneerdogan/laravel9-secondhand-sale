@@ -18,7 +18,7 @@
 
                                 <div class="form-group">
                                     <label>Parent Category</label>
-                                    <select class="form-control select2" name="parent_id" style="">
+                                    <select class="form-control select2 text-white" name="parent_id" style="" >
                                         <option value="0" selected="selected" class="text-white" required>Main Category</option>
                                         @foreach($data as $rs)
                                             <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
