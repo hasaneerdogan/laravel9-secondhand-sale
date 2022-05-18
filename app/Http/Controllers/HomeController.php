@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
 
+    public static function maincategorylist(){
+
+        return Category::where('parent_id','=' ,0)->with('children')->get();
+    }
+
     public function index()
     {
         $sliderdata=Product::limit(3)->get();
@@ -28,6 +33,19 @@ class HomeController extends Controller
           'data'=>$data,
            'images'=>$images
        ]);
+
+    }
+
+    public function categoryproducts($id)
+    {
+        echo "Category Products".$id;
+        exit();
+        $data=Product::find($id);
+        $images = DB::table('images')->where('product_id',$id)->get();
+        return view('Myhome.product',[
+            'data'=>$data,
+            'images'=>$images
+        ]);
 
     }
 

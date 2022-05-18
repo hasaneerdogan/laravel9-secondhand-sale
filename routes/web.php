@@ -23,6 +23,7 @@ Route::middleware([
 
 Route::get('/product/{id}',[HomeController::class,'product'])->name('product');
 Route::get('home/product/{id}',[HomeController::class,'product'])->name('product');
+Route::get('/categoryproducts/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
 
 Route::prefix('admin')->name('admin.')->group(function (){
 //*****************************************ADMIN PANEL ROOT ***********************************//
