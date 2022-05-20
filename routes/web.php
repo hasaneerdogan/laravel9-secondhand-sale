@@ -25,10 +25,17 @@ Route::get('/product/{id}',[HomeController::class,'product'])->name('product');
 Route::get('home/product/{id}',[HomeController::class,'product'])->name('product');
 Route::get('/categoryproducts/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
 
+
 Route::prefix('admin')->name('admin.')->group(function (){
+
 //*****************************************ADMIN PANEL ROOT ***********************************//
     Route::get('/',[AdminHomeController::class,'index'])->name('index');
-//*****************************************ADMIN CATEGORY ROOT ***********************************//
+    //*****************************************General Routes ***********************************//
+    Route::get('/setting',[AdminHomeController::class,'setting'])->name('setting');
+    Route::post('/setting',[AdminHomeController::class,'settingupdate1'])->name('setting.update');
+
+
+    //*****************************************ADMIN CATEGORY ROOT ***********************************//
 
 
     Route::prefix('category')->name('category.')->controller(CategoryController::class)->group(function (){

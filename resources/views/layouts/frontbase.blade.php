@@ -6,6 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@yield('title')</title>
+    <meta name="description" content="@yield("description")">
+    <meta name="keywords" content="@yield("keywords")">
+    <meta name="author" content="Hasan Erdoğan">
+    <link rel="icon" type="image/x-icon" href="@yield("icon")">
+
+
     <link href="{{asset("assets")}}/home_assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset("assets")}}/home_assets/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{asset("assets")}}/home_assets/css/prettyPhoto.css" rel="stylesheet">

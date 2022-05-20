@@ -1,7 +1,7 @@
 <!-- partial:../../partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href=""><img src="{{asset('assets')}}/adminasset/images/logo.svg" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo" href="{{route('admin.category.index')}}"><img src="{{asset('assets')}}/adminasset/images/logo.svg" alt="logo" /></a>
         <a class="sidebar-brand brand-logo-mini" href="{{route('admin.category.index')}}"><img src="{{asset('assets')}}/adminasset/images/logo-mini.svg" alt="logo" /></a>
     </div>
     <ul class="nav">
@@ -140,6 +140,14 @@
                 <i class="mdi mdi-account-question"></i>
               </span>
                 <span class="menu-title">FOQ</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/admin/setting">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-question"></i>
+              </span>
+                <span class="menu-title">Settings</span>
             </a>
         </li>
 

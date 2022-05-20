@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,8 +22,10 @@ class HomeController extends Controller
         $categorylist=Category::limit(5)->get();
         $productlist1=Product::limit(4)->get();
         $productlist2=Product::limit(6)->get();
+        $setting=Setting::first();
         return view('Myhome.index',[
-            'sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'categorylist'=>$categorylist,'productlist2'=>$productlist2
+            'sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'categorylist'=>$categorylist,'productlist2'=>$productlist2,
+            'setting'=>$setting
         ]);
     }
     public function product($id)
