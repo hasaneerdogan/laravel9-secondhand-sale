@@ -23,6 +23,7 @@
     @yield('content')
     @show
     @include('MyAdmin.footer')
+    @yield('foot')
 
 </div>
 </body>

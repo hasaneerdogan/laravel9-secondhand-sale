@@ -10,6 +10,11 @@ use App\Http\Controllers\AdminPanel\CategoryController as CategoryController;
 
 //3- Call Controller***********Main Page*********************************
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/about',[HomeController::class,'about'])->name('about');
+Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('/references',[HomeController::class,'references'])->name('references');
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -26,10 +31,12 @@ Route::get('home/product/{id}',[HomeController::class,'product'])->name('product
 Route::get('/categoryproducts/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
 
 
+
 Route::prefix('admin')->name('admin.')->group(function (){
 
 //*****************************************ADMIN PANEL ROOT ***********************************//
     Route::get('/',[AdminHomeController::class,'index'])->name('index');
+
     //*****************************************General Routes ***********************************//
     Route::get('/setting',[AdminHomeController::class,'setting'])->name('setting');
     Route::post('/setting',[AdminHomeController::class,'settingupdate1'])->name('setting.update');

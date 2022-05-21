@@ -49,6 +49,24 @@ class HomeController extends Controller
         ]);
 
     }
+    public function about(){
+        $setting=Setting::first();
+        return view("Myhome.about",[
+            'setting'=>$setting
+        ]);
+    }
+    public function references(){
+        $setting=Setting::first();
+        return view("Myhome.references",[
+            'setting'=>$setting
+        ]);
+    }
+    public function contact(){
+        $setting=Setting::first();
+        return view("Myhome.contact",[
+            'setting'=>$setting
+        ]);
+    }
 
 
 
