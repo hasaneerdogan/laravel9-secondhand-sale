@@ -12,13 +12,13 @@
                 </div>
             </div>
 
-        <div class="col-sm-7">
-            <div class="product-information"><!--/product-information-->
-                <img src="images/product-details/new.jpg" class="newarrival" alt="" />
-                <h2>{{$data -> title}}</h2>
-                <p>Web ID: 1089772</p>
-                <img src="images/product-details/rating.png" alt="" />
-                <span>
+            <div class="col-sm-7">
+                <div class="product-information"><!--/product-information-->
+                    <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                    <h2>{{$data -> title}}</h2>
+                    <p>Web ID: 1089772</p>
+                    <img src="images/product-details/rating.png" alt="" />
+                    <span>
                         <span>
                             <del>
                                 <h4 style="color: red">{{$data -> price*1.20}} TL </h4>
@@ -32,68 +32,105 @@
 										Add to cart
 									</button>
 								</span>
-                <p><b>Availability:</b> In Stock</p>
-                <p><b>Condition:</b> New</p>
-                <p><b>Detail:</b> {{$data->description}}</p>
-                <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
-            </div><!--/product-information-->
-        </div>
-    </div><!--/product-details-->
+                    <p><b>Availability:</b> In Stock</p>
+                    <p><b>Condition:</b> New</p>
+                    <p><b>Detail:</b> {{$data->description}}</p>
+                    <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+                </div><!--/product-information-->
+            </div>
+        </div><!--/product-details-->
 
-    <div class="category-tab shop-details-tab"><!--category-tab-->
-        <div class="col-sm-12">
-            <ul class="nav nav-tabs">
-                <li><a href="#details" data-toggle="tab">Details</a></li>
-                <li class="active"><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
-            </ul>
-        </div>
-        <div class="tab-content">
-            <div class="tab-pane fade" id="details" >
-                <div class="text-area">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-area " name="detail">
-                                <p>{!!  $data->detail !!}</p>
+        <div class="category-tab shop-details-tab"><!--category-tab-->
+            <div class="col-sm-12">
+                <ul class="nav nav-tabs">
+                    <li><a href="#details" data-toggle="tab">Details</a></li>
+                    <li class="active"><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade" id="details" >
+                    <div class="text-area">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-area " name="detail">
+                                    <p>{!!  $data->detail !!}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
-            </div>
+                <div class="tab-pane fade active in" id="reviews" >
+                    <div class="col-sm-6">
+                        @include('MyHome.messages')
+                        <ul>
+                            <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
+                            <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+                            <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+                        </ul>
+                        <p><b>Write Your Review</b></p>
+                        <form action="{{route('storecomment')}}" method="post">
+                            @csrf
+                            <input class="input" type="hidden" name="product_id" value="{{$data->id}}">
+                            <span>
+                                <input type="text" name="subject" placeholder="Subject">
+                                <input type="email" placeholder="Email Address">
+                            </span>
+                            <textarea class="input" name="review" placeholder="Your Review"></textarea>
+                            <div class="stars">
+                                <strong class="text-uppercase">Your Rate:</strong>
+                                <input type="radio" id="star1" name="rate" value="1"> <label for="star1"></label>
+                                <input type="radio" id="star2" name="rate" value="2"> <label for="star2"></label>
+                                <input type="radio" id="star3" name="rate" value="3"> <label for="star3"></label>
+                                <input type="radio" id="star4" name="rate" value="4"> <label for="star4"></label>
+                                <input type="radio" id="star5" name="rate" value="5"> <label for="star5"></label>
+                           </div>
+                            @auth
+                            <button type="submit" class="btn btn-default pull-right">
+                                Submit
+                            </button>
+                            @else
+                            <a href="/login" class="btn-primary"> For Submit Your Review Please Login</a>
+                            @endauth
 
-            <div class="tab-pane fade active in" id="reviews" >
-                <div class="col-sm-12">
-                    <ul>
-                        <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-                        <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-                        <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
-                    </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <p><b>Write Your Review</b></p>
+                        </form>
 
-                    <form action="#">
-										<span>
-											<input type="text" placeholder="Your Name"/>
-											<input type="email" placeholder="Email Address"/>
-										</span>
-                        <textarea name="" ></textarea>
-                        <b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
-                        <button type="button" class="btn btn-default pull-right">
-                            Submit
-                        </button>
-                    </form>
+                    </div>
+                </div>
+                <div class="tab-pane fade active in" id="reviews" >
+                    <div class="col-sm-6">
+                        @foreach($reviews as $rs)
+                            <div class="single-review">
+                                <div class="review-heading">
+                                    <div><a href="#"><i class="fa fa-user-o"></i> {{$rs->user->name}}</a></div>
+                                    <div><a href="#"><i class="fa fa-clock-o"></i> {{$rs->created_at}}</a></div>
+                                    <div class="review-rating pull-right">
+                                        <i class="fa fa-star @if($rs->rate<1) -o empty @endif"></i>
+                                        <i class="fa fa-star @if($rs->rate<2) -o empty @endif"></i>
+                                        <i class="fa fa-star @if($rs->rate<3) -o empty @endif"></i>
+                                        <i class="fa fa-star @if($rs->rate<4) -o empty @endif"></i>
+                                        <i class="fa fa-star @if($rs->rate<5) -o empty @endif"></i>
+                                    </div>
+                                </div>
+                                <div class="review-body">
+                                    <strong>{{$rs->subject}}</strong>
+                                    <p>{{$rs->review}}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
+        </div><!--/category-tab-->
 
-        </div>
-    </div><!--/category-tab-->
+        <script src="{{asset('assets')}}/home_assets/jquery.js"></script>
+        <script src="{{asset('assets')}}/home_assets/price-range.js"></script>
+        <script src="{{asset('assets')}}/home_assets/jquery.scrollUp.min.js"></script>
+        <script src="{{asset('assets')}}/home_assets/bootstrap.min.js"></script>
+        <script src="{{asset('assets')}}/home_assets/jquery.prettyPhoto.js"></script>
+        <script src="{{asset('assets')}}/home_assets/main.js"></script>
 
-    <script src="{{asset('assets')}}/adminasset/jquery.js"></script>
-    <script src="{{asset('assets')}}/adminasset/price-range.js"></script>
-    <script src="{{asset('assets')}}/adminasset/jquery.scrollUp.min.js"></script>
-    <script src="{{asset('assets')}}/adminasset/bootstrap.min.js"></script>
-    <script src="{{asset('assets')}}/adminasset/jquery.prettyPhoto.js"></script>
-    <script src="{{asset('assets')}}/adminasset/main.js"></script>
 
 
 @endsection
