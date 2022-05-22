@@ -69,7 +69,9 @@ class AdminProductController extends Controller
     public function show(Product $product,$id)
     {
         $data=Product::find($id);
-        return view('Myadmin.Product.show',['data'=>$data]);
+        return view('Myadmin.Product.show',[
+            'data'=>$data
+        ]);
     }
 
     /**
