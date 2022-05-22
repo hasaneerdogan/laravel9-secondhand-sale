@@ -157,7 +157,7 @@
 </footer><!--/Footer-->
 
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="{{asset("assets")}}/home_assets/js/jquery.js"></script>
 <script src="{{asset("assets")}}/home_assets/js/bootstrap.min.js"></script>
 <script src="{{asset("assets")}}/home_assets/js/jquery.scrollUp.min.js"></script>

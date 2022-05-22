@@ -19,7 +19,9 @@
     <link href="{{asset("assets")}}/home_assets/css/animate.css" rel="stylesheet">
     <link href="{{asset("assets")}}/home_assets/css/main.css" rel="stylesheet">
     <link href="{{asset("assets")}}/home_assets/css/responsive.css" rel="stylesheet">
+
     <!--[if lt IE 9]>
+
     <script src="{{asset("assets")}}/home_assets/js/html5shiv.js"></script>
     <script src="{{asset("assets")}}/home_assets/js/respond.min.js"></script>
     <![endif]-->

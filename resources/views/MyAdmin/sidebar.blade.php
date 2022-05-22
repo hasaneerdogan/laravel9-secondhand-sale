@@ -135,7 +135,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/faq">
+            <a class="nav-link" href="{{route("admin.faq.index")}}">
               <span class="menu-icon">
                 <i class="mdi mdi-account-question"></i>
               </span>
