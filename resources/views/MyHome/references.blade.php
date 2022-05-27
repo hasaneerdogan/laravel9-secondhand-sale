@@ -8,9 +8,7 @@
 @section('content')
     <div class="section">
         <div class="container">
-            <div class="row">
-                {!! $setting->references !!}
-            </div>
+            {!! $setting->references !!}
         </div>
     </div>
 

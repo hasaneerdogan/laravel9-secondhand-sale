@@ -110,7 +110,11 @@ class HomeController extends Controller
         return redirect()->route('product',['id'=>$request->input('product_id')])->with('info','Your review has been sent,Thank You');
     }
 
-
-
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 
 }

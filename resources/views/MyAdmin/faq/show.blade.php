@@ -33,7 +33,7 @@
                                     </tr>
                                     <tr>
                                         <th><label class="badge badge-light text-black text-area">Answer</label>
-                                        <td class="text-white text-area row-cols-5 ">{!!  $data->answer !!}</td>
+                                        <td class="text-white text-area row-cols-5 justify-content-center" >{!!  $data->answer !!}</td>
                                         </th>
                                         <script>
                                             ClassicEditor

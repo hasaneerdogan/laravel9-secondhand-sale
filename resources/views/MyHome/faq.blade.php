@@ -22,7 +22,6 @@
                 <div class="container">
                     <div id="accordion">
                     @foreach($datalist as $rs)
-
                             <div class="card">
                                 <div class="card-header">
                                     <a class="card-link" data-toggle="collapse" href="#collapse{{$loop->iteration}}">
