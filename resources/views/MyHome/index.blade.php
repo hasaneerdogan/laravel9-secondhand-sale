@@ -28,7 +28,8 @@
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="{{$rs->title}}" class="panel-collapse collapse">
+                                <div id="{{$rs->title}}" cla
+                                     ss="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
                                             @if(count($rs->children))

@@ -62,7 +62,7 @@
                             @auth()
                                 <li><a href="{{route('userpanel.index')}}"><i class="fa fa-user"></i> {{Auth::user()->name}}</a></li>
                                 <li><a href="/logoutuser"><i class="fa fa-lock"></i> Logout</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="{{route('shopcart.index')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                             @endauth
                             @guest()
                                 <li><a href="/loginuser"><i class="fa fa-lock"></i> Login</a></li>
