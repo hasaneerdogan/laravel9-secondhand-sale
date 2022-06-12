@@ -36,7 +36,7 @@ class HomeController extends Controller
     {
        $data=Product::find($id);
         $images = DB::table('images')->where('product_id',$id)->get();
-        $reviews=Comment::where('product_id',$id)->get();
+        $reviews=Comment::where('product_id',$id)->where('status','True')->get();
        return view('Myhome.product',[
           'data'=>$data,
            'images'=>$images,
@@ -115,6 +115,25 @@ class HomeController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    public function loginadmincheck(Request $request)
+    {
+       // dd($request);
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin');
+        }
+
+        return back()->withErrors([
+            'error' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
     }
 
 }

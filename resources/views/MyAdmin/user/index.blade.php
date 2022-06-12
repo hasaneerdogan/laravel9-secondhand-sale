@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Comment & Reviews')
+@section('title', 'User List')
 
 @section('content')
 
@@ -9,16 +9,14 @@
             <div class="col-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Comment List</h4>
+                        <h4 class="card-title">User List</h4>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                 <td class="text-white">Id</td>
                                 <td class="text-white">Name</td>
-                                <td class="text-white">Product</td>
-                                <th class="text-white">Subject</th>
-                                <th class="text-white">Review</th>
-                                <th class="text-white">Rate</th>
+                                <th class="text-white">Email</th>
+                                <th class="text-white">Role</th>
                                 <th class="text-white">Status</th>
                                 <th style="width: 40px" class="text-white">Delete</th>
                                 <th style="width: 40px" class="text-white">Show</th>
@@ -28,15 +26,17 @@
                                 @foreach($data as $rs)
                                     <tr>
                                         <th>{{$rs->id}}</th>
-                                        <th>{{$rs->user->name}}</th>
-                                        <th><a href="{{route('admin.product.show',['id'=>$rs->product_id])}}">{{$rs->product->title}}</a></th>
-                                        <th>{{$rs->subject}}</th>
-                                        <th>{{$rs->review}}</th>
-                                        <th>{{$rs->rate}}</th>
+                                        <th>{{$rs->name}}</th>
+                                        <th>{{$rs->email}}</th>
+                                        <th>
+                                            @foreach($rs->roles as $roles)
+                                                {{$roles->name}}
+                                            @endforeach
+                                        </th>
                                         <th>{{$rs->status}}</th>
-                                       <th><a href="{{route('admin.comment.destroy',['id'=>$rs->id])}}"
+                                       <th><a href="{{route('admin.user.destroy',['id'=>$rs->id])}}"
                                               onclick="return confirm('Are You Sure')" class="add btn btn-danger "> Delete</a></th>
-                                        <th><a href="{{route('admin.comment.show',['id'=>$rs->id])}}"
+                                        <th><a href="{{route('admin.user.show',['id'=>$rs->id])}}"
                                                onclick="return !window.open(this.href, ' ', 'top=50 left=100 width=1100 , height=700')"
                                                class="add btn btn-success "> Show</a></th>
                                     </tr>

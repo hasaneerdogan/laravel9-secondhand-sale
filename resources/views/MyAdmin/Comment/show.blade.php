@@ -23,6 +23,10 @@
                                 <td class="text-white">{{$data->id}}</td>
                             </tr>
                             <tr>
+                                <th style="width: 30px"><label class="badge badge-light text-black">Product</label></th>
+                                <td class="text-white">{{$data->product->title }}</td>
+                            </tr>
+                            <tr>
                                 <th style="width: 30px"><label class="badge badge-light text-black">Name</label></th>
                                 <td class="text-white">{{$data->user->name }}</td>
                             </tr>
@@ -37,11 +41,6 @@
                             <tr>
                                 <th style="width: 30px"><label class="badge badge-light text-black">Rate</label></th>
                                 <td class="text-white">{{$data->rate }}</td>
-                            </tr>
-                            <tr>
-                                <th><label class="badge badge-light text-black text-area">Message</label>
-                                <td class="text-white text-area col-12 row-cols-auto">{!!  $data->message !!}</td>
-                                </th>
                             </tr>
                             <tr>
                                 <th style="width: 30px"><label class="badge badge-light text-black">Status</label></th>
@@ -62,13 +61,15 @@
                             <tr>
                                 <th style="width: 30px"><label class="badge badge-light text-black">Admin Note</label></th>
                                 <td class="text-white">
-                                    <form role="form" action="{{route('admin.message.update',['id'=>$data->id])}}" method="post">
+                                    <form role="form" action="{{route('admin.comment.update',['id'=>$data->id])}}" method="post">
                                         @csrf
-                                        <textarea class="text-area " id="note" name="note" cols="20px" rows="5px">
-                                            {{$data->note}}
-                                        </textarea>
+                                        <select name="status">
+                                            <option selected> {{$data->status}}</option>
+                                            <option>True</option>
+                                            <option>False</option>
+                                        </select>
                                         <div class="card-footer">
-                                            <button type="submit " class="btn btn-primary"> Update Note</button>
+                                            <button type="submit " class="btn btn-primary"> Update Comment</button>
                                         </div>
                                     </form>
                                 </td>

@@ -1,20 +1,15 @@
 <!-- partial:../../partials/_sidebar.html -->
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="{{route('admin.category.index')}}"><img src="{{asset('assets')}}/adminasset/images/logo.svg" alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini" href="{{route('admin.category.index')}}"><img src="{{asset('assets')}}/adminasset/images/logo-mini.svg" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo text-white" href="{{route('admin.category.index')}}"> Admin Panel</a>
+        <a class="sidebar-brand brand-logo-mini text-white " href="{{route('admin.category.index')}}">Admin Panel</a>
     </div>
     <ul class="nav">
         <li class="nav-item profile">
             <div class="profile-desc">
                 <div class="profile-pic">
-                    <div class="count-indicator">
-                        <img class="img-xs rounded-circle " src="{{asset('assets')}}/adminasset/images/faces/face15.jpg" alt="">
-                        <span class="count bg-success"></span>
-                    </div>
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                        <span>Gold Member</span>
+                        <h5 class="mb-0 font-weight-normal">{{Auth::user()->name}}</h5>
                     </div>
                 </div>
                 <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -100,7 +95,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/users">
+            <a class="nav-link" href="{{route("admin.user.index")}}">
               <span class="menu-icon">
                 <i class="mdi mdi-account"></i>
               </span>

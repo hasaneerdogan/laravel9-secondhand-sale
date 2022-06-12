@@ -4,7 +4,8 @@
 
 @section('content')
 
-    <div class="stretch-card ">
+    <div class="stretch-card  ">
+        <div class="container">
         <div class="product-details"><!--product-details-->
             <div class="col-sm-5 ">
                 <div class="view-product">
@@ -16,7 +17,21 @@
                 <div class="product-information"><!--/product-information-->
                     <img src="images/product-details/new.jpg" class="newarrival" alt="" />
                     <h2>{{$data -> title}}</h2>
-                    <p>Web ID: 1089772</p>
+                    @php
+                        $average = $data->comment->average('rate')
+                    @endphp
+                    <a href="">{{$data->comment->count('id')}} Reviews</a>
+
+                    <div  class="product-rating">
+                        {{number_format($average,1)}}
+                        <i class="fa fa-star @if($average <1) -o empty @endif"></i>
+                        <i class="fa fa-star @if($average <2) -o empty @endif"></i>
+                        <i class="fa fa-star @if($average<3) -o empty @endif"></i>
+                        <i class="fa fa-star @if($average<4) -o empty @endif"></i>
+                        <i class="fa fa-star @if($average<5) -o empty @endif"></i>
+                    </div>
+
+
                     <img src="images/product-details/rating.png" alt="" />
                     <span>
                         <span>
@@ -44,7 +59,7 @@
             <div class="col-sm-12">
                 <ul class="nav nav-tabs">
                     <li><a href="#details" data-toggle="tab">Details</a></li>
-                    <li class="active"><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+                    <li class="active"><a href="#reviews" data-toggle="tab">Reviews</a></li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -64,11 +79,6 @@
                 <div class="tab-pane fade active in" id="reviews" >
                     <div class="col-sm-6">
                         @include('MyHome.messages')
-                        <ul>
-                            <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-                            <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-                            <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
-                        </ul>
                         <p><b>Write Your Review</b></p>
                         <form action="{{route('storecomment')}}" method="post">
                             @csrf
@@ -93,12 +103,11 @@
                             @else
                             <a href="/login" class="btn-primary"> For Submit Your Review Please Login</a>
                             @endauth
-
                         </form>
-
                     </div>
                 </div>
-                <div class="tab-pane fade active in" id="reviews" >
+
+
                     <div class="col-sm-6">
                         @foreach($reviews as $rs)
                             <div class="single-review">
@@ -120,9 +129,10 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
+
             </div>
         </div><!--/category-tab-->
+        </div>
 
         <script src="{{asset('assets')}}/home_assets/jquery.js"></script>
         <script src="{{asset('assets')}}/home_assets/price-range.js"></script>
