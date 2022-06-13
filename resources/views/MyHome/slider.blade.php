@@ -18,7 +18,7 @@
                                     <p>{{$rs->description}} </p>
                                     <button type="button" class="btn btn-default get">
                                         <a href="{{route('product',['id'=>$rs->id])}}" style="color: #0b0b0b">
-                                            Get it now
+                                            View
                                         </a>
                                     </button>
                                 </div>

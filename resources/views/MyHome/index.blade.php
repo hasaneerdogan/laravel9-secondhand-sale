@@ -61,7 +61,7 @@
                                         <img src="{{Storage::url($rs->image) }}" alt="" width="" height="350" />
                                         <h2>{{$rs->price}} TL</h2>
                                         <p>{{$rs->title}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
@@ -105,7 +105,7 @@
                                         <img src="{{Storage::url($rs->image) }}" alt="" />
                                         <h2>{{$rs->price}} TL</h2>
                                         <p>{{$rs->description}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>View</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">

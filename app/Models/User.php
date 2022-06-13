@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\AdminPanel\OrderController;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -68,5 +69,11 @@ class User extends Authenticatable
     }
     public function shopcart(){
         return $this->hasMany(ShopCart::class);
+    }
+    public function order(){
+        return $this->hasMany(Order::class);
+    }
+    public function orderproduct(){
+        return $this->hasMany(OrderProduct::class);
     }
 }

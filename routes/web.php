@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPanel\CommentController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\MessageController;
+use App\Http\Controllers\AdminPanel\OrderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ShopCartController;
 use App\Http\Controllers\UserController;
@@ -47,6 +48,10 @@ Route::middleware('auth')->group(function() {
         Route::get('/',[UserController::class,'index'])->name('index');
         Route::get('/reviews',[UserController::class,'reviews'])->name('reviews');
         Route::get('reviewdestroy/{id}',[UserController::class,'reviewdestroy'])->name('reviewdestroy');
+        Route::get('/orders',[UserController::class,'orders'])->name('orders');
+        Route::get('orderdetail/{id}',[UserController::class,'orderdetail'])->name('orderdetail');
+        Route::get('cancelproduct/{id}',[UserController::class,'cancelproduct'])->name('cancelproduct');
+
 
     });
 
@@ -60,6 +65,9 @@ Route::middleware('auth')->group(function() {
         Route::get('/delete/{id}','destroy')->name('delete');
         Route::get('/show/{id}','show')->name('show');
         Route::get('/destroy/{id}','destroy')->name('destroy');
+        Route::post('/order','order')->name('order');
+        Route::post('/storeorder','storeorder')->name('storeorder');
+        Route::get('/ordercomplete','ordercomplete')->name('ordercomplete');
     });
 
 
@@ -138,6 +146,20 @@ Route::middleware('auth')->group(function() {
             Route::get('/destroy/{id}','destroy')->name('destroy');
             Route::post('/addrole/{id}','addrole')->name('addrole');
             Route::get('/destroyrole/{uid}/{rid}','destroyrole')->name('destroyrole');
+        });
+
+        //*****************************************Order ROOT ***********************************//
+        Route::prefix('order')->name('order.')->controller(OrderController::class)->group(function (){
+            Route::get('/{slug}','index')->name('index');
+            Route::get('/create','create')->name('create');
+            Route::post('/store','store')->name('store');
+            Route::get('/edit/{id}','edit')->name('edit');
+            Route::post('/update/{id}','update')->name('update');
+            Route::get('/delete/{id}','destroy')->name('delete');
+            Route::get('/show/{id}','show')->name('show');
+            Route::get('/cancelorder/{id}','cancelorder')->name('cancelorder');
+            Route::get('/cancelproduct/{id}','cancelproduct')->name('cancelproduct');
+            Route::get('/acceptproduct/{id}','acceptproduct')->name('acceptproduct');
         });
     });
 });

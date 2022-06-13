@@ -21,9 +21,9 @@
                             </div>
                         </div>
                         <div class="col-sm-10">
-                            <div class="contact-info">
+                            <div class="contact-info card-body">
                                 <h2 class="title text-center">User Shopcart</h2>
-                                <div class="table-responsive cart_info">
+                                <div class="table-responsive cart_info table-bordered">
                                     <table class="table table-condensed">
                                         <thead>
                                         <tr class="cart_menu">
@@ -53,12 +53,16 @@
                                                         <form action="{{route('shopcart.update',['id'=>$rs->id])}}" method="post">
                                                             @csrf
                                                             <input name="quantity" type="number" value="{{$rs->quantity}}" min="1" max="{{$rs->product->quantity}}" onchange="this.form.submit()">
+                                                            <a class="product-delete" href="{{route('shopcart.destroy',['id'=>$rs->id])}}"
+                                                               onclick="return confirm('Are You Sure')">
+                                                                <button class="cart_quantity_down">
+                                                                    -
+                                                                </button>
+                                                            </a>
                                                         </form>
                                                     </div>
-                                                    <div class="card-body">
-                                                        <a class="product-delete" href="{{route('shopcart.destroy',['id'=>$rs->id])}}"
-                                                           onclick="return confirm('Are You Sure')" class="add btn btn-danger "> [X]
-                                                        </a>
+                                                    <div class="">
+
                                                     </div>
 
                                                 </td>
@@ -73,7 +77,23 @@
                                                 </td>
                                             </tr>
                                         </tbody>
+
                                     </table>
+                                    <form action="{{route('shopcart.order')}}" method="post">
+                                        @csrf
+                                        <input name="total" value="{{$total}}" type="hidden">
+                                        <div class="card-footer">
+                                            <div class="total_area">
+                                                <ul>
+                                                    <li>Cart Sub Total <span>{{$total}} TL</span></li>
+                                                </ul>
+                                                <a class="" href="">
+                                                    <button type="submit" class="btn btn-default update"> Order
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
 
                             </div>

@@ -113,10 +113,11 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="">New Order</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="">Accepted Order</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="">Shipping Order</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="">Completed Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/order/new">New Order</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/order/accepted">Accepted Order</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/order/canceled">Canceled Order</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/order/shipped">Shipping Order</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/order/completed">Completed Orders</a></li>
                 </ul>
             </div>
         </li>
